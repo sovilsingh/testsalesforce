@@ -1,0 +1,84 @@
+SOSL :-
+===========
+
+Select ID, Name From Account  -- Standard 
+
+Select Name from Admission__c -- Custom Object
+
+Select Name, Course_Details__c from Admission__c --- Custom field and Custom Object
+
+Select Name, Contact_price__c from contact  --- Standard object and Custom field
+
+Filtering :- where or and And (group)
+========================
+
+Select Id, Name, Rating from Account Where Rating = 'Hot'
+
+Select Id, Name, Rating, Industry from Account Where Rating = 'Hot' And Industry != null
+
+Select Id, Name, Rating, Industry from Account Where (Rating = 'Cold' Or Rating = 'Hot') And (Industry = 'Media' or Industry != null )
+
+Select Id, Name, Rating, Industry from Account Where Industry = 'Media' OR Industry = 'Technology' Or Industry = 'Transportation' 
+
+IN 
+=======
+
+Select Id, Name, Rating, Industry from Account Where Industry IN ('Media', 'Energy')
+
+Like 
+=======
+Select Id, Name, Rating, Industry from Account Where Name Like 'G%' -- G at first
+
+Select Id, Name, Rating, Industry from Account Where Name Like '%ov%' -- middle
+
+Select Id, Name, Rating, Industry from Account Where Name Like 'U_i%'  - start start with U midle anything and after that we have I
+
+Sorting
+===========
+
+Select Id, Name, Rating, Industry from Account Order BY Name ---- By Name by default it is Ascending 
+
+Select Id, Name, Rating, Industry from Account Order BY Name ASC
+
+Select Id, Name, Rating, Industry from Account Order BY Name Desc
+
+Select Id, Name, Rating, Industry from Account Where Rating = 'Hot' Order BY Name Desc ---- Combine Order by and Where
+
+
+Date 
+======
+
+Select Id, Name, Rating, Industry, CreatedDate from Account Where CreatedDate = YESTERDAY
+
+Select Id, Name, Rating, Industry, CreatedDate from Account Where CreatedDate = Today
+
+Select Id, Name, Rating, Industry, CreatedDate from Account Where CreatedDate = LAST_WEEK
+
+Select Id, Name, Rating, Industry, CreatedDate from Account Where CreatedDate = THIS_WEEK
+
+Select Id, Name, Rating, Industry, CreatedDate from Account Where CreatedDate = NEXT_WEEK
+
+Select Id, Name, Rating, Industry, CreatedDate from Account Where CreatedDate = LAST_MONTH
+
+Select Id, Name, Rating, Industry, CreatedDate from Account Where CreatedDate = THIS_MONTH
+
+Select Id, Name, Rating, Industry, CreatedDate from Account Where CreatedDate = NEXT_MONTH
+
+Select Id, Name, Rating, Industry, CreatedDate from Account Where CreatedDate = LAST_90_DAYS
+
+Select Id, Name, Rating, Industry, CreatedDate from Account Where CreatedDate = NEXT_90_DAYS
+
+Select Id, Name, Rating, Industry, CreatedDate from Account Where CreatedDate = LAST_QUARTER
+
+LIMIT
+=======
+
+Select Id, Name, Rating, Industry, CreatedDate from Account Limit 1
+
+OFFset pagination
+=====
+Select Id, Name, Rating, Industry, CreatedDate from Account Offset 5 
+
+
+
+
